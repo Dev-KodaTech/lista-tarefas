@@ -1,69 +1,143 @@
-# Welcome to your Lovable project
+# Lista de Tarefas
 
-## Project info
+Um aplicativo de gerenciamento de tarefas construído com React, TypeScript, Supabase e Vercel.
 
-**URL**: https://lovable.dev/projects/a136aa81-6d2b-48de-bd6e-bc17f642d15e
+## Funcionalidades
 
-## How can I edit this code?
+- Autenticação de usuários (email/senha e GitHub)
+- Gerenciamento de tarefas (criar, editar, excluir)
+- Categorização de tarefas
+- Upload de anexos
+- Filtros e pesquisa avançada
+- Estatísticas e relatórios
+- Interface responsiva e moderna
 
-There are several ways of editing your application.
+## Tecnologias Utilizadas
 
-**Use Lovable**
+- Frontend:
+  - React
+  - TypeScript
+  - Tailwind CSS
+  - React Query
+  - React Hook Form
+  - Zod
+  - Lucide React
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a136aa81-6d2b-48de-bd6e-bc17f642d15e) and start prompting.
+- Backend:
+  - Supabase (Banco de dados PostgreSQL)
+  - Supabase Edge Functions (Deno)
+  - Supabase Storage (Armazenamento de arquivos)
+  - Supabase Auth (Autenticação)
 
-Changes made via Lovable will be committed automatically to this repo.
+- Deploy:
+  - Vercel (Frontend)
+  - Supabase (Backend)
 
-**Use your preferred IDE**
+## Pré-requisitos
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js 18+
+- npm ou yarn
+- Conta no Supabase
+- Conta na Vercel (opcional, para deploy)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Configuração do Ambiente
 
-Follow these steps:
+1. Clone o repositório:
+\`\`\`bash
+git clone https://github.com/seu-usuario/lista-tarefas.git
+cd lista-tarefas
+\`\`\`
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. Instale as dependências:
+\`\`\`bash
+npm install
+# ou
+yarn
+\`\`\`
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. Configure as variáveis de ambiente:
+\`\`\`bash
+cp .env.example .env.local
+\`\`\`
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. Preencha as variáveis de ambiente no arquivo `.env.local`:
+\`\`\`
+NEXT_PUBLIC_SUPABASE_URL=sua-url-do-supabase
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sua-chave-anon-do-supabase
+\`\`\`
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+5. Execute as migrations do banco de dados:
+\`\`\`bash
+npx supabase db push
+\`\`\`
+
+6. Inicie o servidor de desenvolvimento:
+\`\`\`bash
 npm run dev
-```
+# ou
+yarn dev
+\`\`\`
 
-**Edit a file directly in GitHub**
+7. Acesse o aplicativo em `http://localhost:3000`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Estrutura do Projeto
 
-**Use GitHub Codespaces**
+\`\`\`
+lista-tarefas/
+├── src/
+│   ├── app/              # Páginas e rotas
+│   ├── components/       # Componentes React
+│   ├── hooks/           # Custom hooks
+│   ├── lib/             # Configurações e utilitários
+│   ├── styles/          # Estilos globais
+│   └── types/           # Definições de tipos
+├── supabase/
+│   ├── functions/       # Edge Functions
+│   ├── migrations/      # Migrations do banco de dados
+│   └── seed/           # Dados iniciais
+├── public/             # Arquivos estáticos
+└── package.json
+\`\`\`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deploy
 
-## What technologies are used for this project?
+### Frontend (Vercel)
 
-This project is built with .
+1. Conecte seu repositório à Vercel
+2. Configure as variáveis de ambiente
+3. Deploy automático a cada push na branch main
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Backend (Supabase)
 
-## How can I deploy this project?
+1. Execute as migrations no ambiente de produção:
+\`\`\`bash
+npx supabase db push --db-url=sua-url-do-banco
+\`\`\`
 
-Simply open [Lovable](https://lovable.dev/projects/a136aa81-6d2b-48de-bd6e-bc17f642d15e) and click on Share -> Publish.
+2. Deploy das Edge Functions:
+\`\`\`bash
+npx supabase functions deploy
+\`\`\`
 
-## I want to use a custom domain - is that possible?
+## Contribuição
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+1. Fork o projeto
+2. Crie uma branch para sua feature (\`git checkout -b feature/nova-feature\`)
+3. Commit suas mudanças (\`git commit -m 'Adiciona nova feature'\`)
+4. Push para a branch (\`git push origin feature/nova-feature\`)
+5. Abra um Pull Request
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Autor
+
+Seu Nome - [@seu-usuario](https://github.com/seu-usuario)
+
+## Agradecimentos
+
+- [Supabase](https://supabase.io/)
+- [Vercel](https://vercel.com/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
